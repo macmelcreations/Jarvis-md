@@ -60,7 +60,7 @@ System({
             return await message.reply("_Welcome deleted successfully_");
         }
         await setMessage(message.jid, "welcome", match);
-        return await message(message.chat, {text: `_@${jid[0].split("@")[0]} promoted as admin successfully_`, mentions: jid, });
+        return await message.reply(message.chat, {text: `_@${jid[0].split("@")[0]} promoted as admin successfully_`, mentions: jid, });
         return await message.reply("_Welcome set successfully_");
     }
 );
