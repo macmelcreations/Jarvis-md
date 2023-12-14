@@ -30,7 +30,6 @@ System({
             let replyMsg = `Welcome manager\n\nGroup: ${
             (await message.client.groupMetadata(message.jid)).subject
             }\nStatus: ${stat}\n\nAvailable Actions:\n\n- ${prefix}welcome get: Get the welcome message\n- ${prefix}welcome on: Enable welcome message\n- ${prefix}welcome off: Disable welcome message\n- ${prefix}welcome delete: Delete the welcome message`;
-            return await message.client.sendMessage(message.chat, {text: `_@${jid[0].split("@")[0]} promoted as admin successfully_`, mentions: jid, });
             return await message.reply(replyMsg);
         }
 
@@ -60,7 +59,7 @@ System({
             return await message.reply("_Welcome deleted successfully_");
         }
         await setMessage(message.jid, "welcome", match);
-        return await message.reply(message.chat, {text: `_@${jid[0].split("@")[0]} promoted as admin successfully_`, mentions: jid, });
+        return await message.reply({text: `_@${jid[0].split("@")[0]} promoted as admin successfully_`, mentions: jid, });
         return await message.reply("_Welcome set successfully_");
     }
 );
